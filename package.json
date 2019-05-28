@@ -1,0 +1,28 @@
+{
+  "name": "vue-cli-plugin-toolbox",
+  "version": "0.1.0",
+  "description": "A vue-cli plugin toolbox to increase your productivity.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orlandster/vue-cli-plugin-toolbox.git"
+  },
+  "keywords": [
+    "vue",
+    "cli",
+    "plugin",
+    "toolbox",
+    "vue",
+    "vuejs",
+    "vue-cli"
+  ],
+  "author": "Orlandster",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Orlandster/vue-cli-plugin-toolbox/issues"
+  },
+  "homepage": "https://github.com/Orlandster/vue-cli-plugin-toolbox#readme"
+}
