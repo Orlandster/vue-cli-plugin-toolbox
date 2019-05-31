@@ -11,10 +11,10 @@ module.exports = (api) => {
         },
         async () => {
           const projectRoot = process.cwd();
-          const nameArg = getArguments()[1];
+          const nameArg = getArguments()[2];
           const formattedNames = getFormattedNames(nameArg);
           const renderedFile = await renderFile(`${__dirname}/templates/components/single-file/Template.vue`, formattedNames);
-          const filePath = `${projectRoot}/src/components/${formattedNames.nameUpperCamelCase}.vue`;
+          const filePath = `${projectRoot}/src/components/${formattedNames.path}${formattedNames.nameUpperCamelCase}.vue`;
 
           try {
             await createFile(filePath, renderedFile)
