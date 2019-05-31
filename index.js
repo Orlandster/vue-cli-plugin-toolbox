@@ -1,5 +1,5 @@
-const appRoot = require('app-root-path');
-const ejs = require('ejs');
+const { createFile } = require('./lib/fs');
+const { renderFile } = require('./lib/ejs');
 
 module.exports = (api, opts) => {
     api.registerCommand(
@@ -8,8 +8,10 @@ module.exports = (api, opts) => {
           description: 'Generates Components, Directive and Filters.',
           usage: 'npx vue-cli-service generate'
         },
-        () => {
-          const projectRoot = require('app-root-path').resolve(process.cwd());
+        async () => {
+          const projectRoot = process.cwd();
+
+          console.log(projectRoot)
 
           let component = {
             name: 'New Component',
@@ -18,9 +20,8 @@ module.exports = (api, opts) => {
             nameUpperCamelCase: 'NewComponent',
           };
 
-          ejs.renderFile(`${__dirname}/templates/components/single-file/Template.vue`, component, function(err, str){
-            console.log(str, err);
-          });
+          const renderedFile = await renderFile(`${__dirname}/templates/components/single-file/Template.vue`, component);
+          await createFile(`${projectRoot}/src/components/Name.vue`, renderedFile)
         }
     )
 }
